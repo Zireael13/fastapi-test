@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "fastapi-test"
+version = "0.1.0"
+description = ""
+authors = ["Matt Wilkinson <mattwilki17@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+fastapi = "^0.61.1"
+pymongo = "^3.11.0"
+requests = "^2.24.0"
+elastic-apm = "^5.8.1"
+elasticsearch = "^7.9.1"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.0.2"
+black = {version = "^20.8b1", allow-prereleases = true}
+flake8 = "^3.8.3"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
