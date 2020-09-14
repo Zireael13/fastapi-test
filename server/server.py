@@ -27,8 +27,10 @@ class Settings(BaseSettings):
 
 settings = Settings()
 
+# es = Elasticsearch
 service = "es"
 
+# aws auth
 awsauth = AWS4Auth(
     settings.AWS_ACCESS_KEY_ID,
     settings.AWS_SECRET_ACCESS_KEY,
@@ -36,6 +38,7 @@ awsauth = AWS4Auth(
     service,
 )
 
+# init elasticsearch
 es = Elasticsearch(
     hosts=[{"host": settings.AWS_HOST, "port": 443}],
     http_auth=awsauth,
@@ -44,7 +47,7 @@ es = Elasticsearch(
     connection_class=RequestsHttpConnection,
 )
 
-
+# init FastAPI
 app = FastAPI()
 
 
@@ -55,6 +58,7 @@ def home():
     return {"hello": "world"}
 
 
+# check elasticsearch connection
 @app.get("/ping")
 def ping():
     ping = es.ping()
@@ -80,5 +84,6 @@ def app_shutdown():
     es.close()
 
 
+# run uvicorn server
 if __name__ == "__main__":
     uvicorn.run(app)
