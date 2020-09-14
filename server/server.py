@@ -13,8 +13,10 @@ from pydantic import BaseSettings
 class Settings(BaseSettings):
     AWS_ACCESS_KEY_ID: str
     AWS_SECRET_ACCESS_KEY: str
-    AWS_HOST: str  # For example, my-test-domain.us-east-1.es.amazonaws.com
-    AWS_REGION: str  # e.g. us-west-1
+    AWS_HOST: str = (
+        "search-matt-test-wzk7emgc5uns46u42e5rygpoeq.us-east-2.es.amazonaws.com"
+    )
+    AWS_REGION: str = "us-east-2"
 
     class Config:
         env_file = ".env"
