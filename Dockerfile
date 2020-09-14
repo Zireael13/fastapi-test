@@ -9,7 +9,7 @@ COPY ./ /app
 # install poetry
 RUN pip install poetry
 
-# disable virtualenv for peotry
+# disable virtualenv for poetry
 RUN poetry config virtualenvs.create false
 
 # install dependencies
