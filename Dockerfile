@@ -1,7 +1,7 @@
 FROM tiangolo/uvicorn-gunicorn-fastapi:python3.8
 
 # set path to our python api file
-ENV MODULE_NAME="server.server"
+ENV MODULE_NAME="server.main"
 
 # copy contents of project into docker
 COPY ./ /app
