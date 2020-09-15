@@ -2,9 +2,6 @@
 import uvicorn
 from fastapi import FastAPI
 import asyncio
-import requests
-
-# from typing import Optional
 from elasticsearch import Elasticsearch, RequestsHttpConnection
 from requests_aws4auth import AWS4Auth
 from pydantic import BaseSettings
